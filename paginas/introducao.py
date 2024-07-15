@@ -94,7 +94,7 @@ Esses fatores combinados criaram uma situação excepcional onde os preços do p
   - O mercado de petróleo mostrou resiliência, com preços se recuperando após quedas significativas. A recuperação pós-crise financeira e pós-pandemia são exemplos notáveis dessa resiliência.
 
 ##  Análise de correlação
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/correlacao.png" alt="série Temporal" width="800"/>
                 
 |                           | Energy Select Sector SPDR Fund | WTI Crude Oil | Brent Crude Oil | Barril     |
 |---------------------------|--------------------------------|---------------|-----------------|------------|
@@ -117,19 +117,19 @@ Esses fatores combinados criaram uma situação excepcional onde os preços do p
                 
 ## Análise de dados ausentes.
                 
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
-                <img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie1.png" alt="série Temporal" width="800"/>
+                <img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie2.png" alt="série Temporal" width="800"/>
 
 **Optamos por considerar os dados de 2014 em diante e por excluir os dados de março de 2020 devido ao início da pandemia, que apresentou um comportamento significativamente atípico.**
 
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
-                <img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/dadosausentes1.png" alt="série Temporal" width="800"/>
+                <img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/dadosausentes2.png" alt="série Temporal" width="800"/>
 
 ## Análise da série temporal      
 
 Decompomos a série temporal e analisamos:
                 
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/decomposicao.png" alt="série Temporal" width="800"/>
                 
 ### Teste adfuller
 Métado para um teste estatístico com a finalidade de aceitar/recusar a hipótese da série ser estacionária
@@ -159,7 +159,7 @@ Rejeitamos a hipótese nula se o p-value for menor que 0.05, ou seja, estamos tr
                 
 Criamos um modelo arima como um benchmark de comparação com os outros modelos:
                 
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>          
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/arima.png" alt="série Temporal" width="800"/>          
 
 ### Divisão da Base de Dados
 
@@ -234,7 +234,22 @@ Tambem usando a tecnica de gridsearch com os seguintes parametros:
 | **Root Mean Squared Error (RMSE)** | `3.634565614514504`      |
 | **R² (Coeficiente de Determinação)** | `-0.0727038584038533`  |
 
-<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/serie-temporal.png" alt="série Temporal" width="800"/>
+<img src="https://raw.githubusercontent.com/leandric/TECH_CHALLENGE_FASE_4/main/img/prophet.png" alt="série Temporal" width="800"/>
+
+                
+## 5. Conclusão
+
+O projeto PetroPrice Monitor foi uma iniciativa abrangente que abrangeu desde a coleta e análise de dados históricos de preços de petróleo até o desenvolvimento de modelos preditivos e a criação de um dashboard interativo. A coleta de dados de fontes confiáveis como o IPEA e Yahoo Finance garantiu a robustez das análises subsequentes. A análise exploratória de dados revelou importantes tendências históricas e correlações entre diferentes ativos relacionados ao petróleo, fornecendo um contexto valioso para a modelagem preditiva.
+
+A modelagem preditiva envolveu a implementação e comparação de três diferentes abordagens: SARIMAX, ARIMA e FBProphet, cada uma otimizada através de técnicas de GridSearch para encontrar os melhores hiperparâmetros. O modelo SARIMAX mostrou-se promissor com um MAPE de 3.42%, indicando uma previsão relativamente precisa. No entanto, o valor negativo do R² sugere que o modelo pode não capturar toda a variabilidade dos dados, o que foi uma característica compartilhada, em maior ou menor grau, pelos outros modelos testados.
+
+### Acurácia dos Modelos
+
+A avaliação da acurácia dos modelos preditivos é crucial para entender sua eficácia em prever os preços do petróleo. O modelo SARIMAX apresentou um MAE de 2.8, indicando que, em média, suas previsões estavam a cerca de 2.8 dólares do valor real. O MAPE de 3.42% reforça a precisão do modelo em termos percentuais. Entretanto, o valor negativo de R² (-0.004) sugere que o modelo não conseguiu explicar suficientemente a variabilidade nos dados, apontando limitações em captar todas as dinâmicas do mercado.
+
+O modelo FBProphet, por outro lado, apresentou um MAE de 3.20 e um RMSE de 3.63, com um R² de -0.073. Apesar de ter um desempenho ligeiramente inferior ao SARIMAX em termos de erro absoluto e percentual, o FBProphet ainda se mostrou útil como uma abordagem complementar. A análise das métricas de desempenho de ambos os modelos indica que, embora precisos em termos de erro médio, há espaço para melhorias, especialmente na captura das variações mais sutis dos preços do petróleo.
+
+Por fim, a criação de um dashboard interativo permitiu a visualização clara e intuitiva dos resultados, facilitando a tomada de decisões informadas. Este projeto não apenas demonstrou a aplicabilidade de técnicas de análise de dados e machine learning na previsão de preços de petróleo, mas também destacou a importância de uma abordagem multidisciplinar, combinando conhecimento técnico com uma compreensão profunda do contexto econômico e do mercado.
 
                 ''', unsafe_allow_html=True)
 

@@ -13,7 +13,7 @@ st.set_page_config(
 
 # Definindo os nomes das páginas
 page_names_to_funcs = {
-    "Introdução": introducao.show,
+    "Documentação": introducao.show,
     "Dashboard": dashboard.show,
     "Modelo": modelo.show,
     "Sobre": sobre.show

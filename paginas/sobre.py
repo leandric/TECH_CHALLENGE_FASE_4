@@ -1,29 +1,28 @@
 import streamlit as st
 
 def show():
-    st.title("Sobre o Time")
+    st.title("Sobre o Time 2")
     st.write("Conheça os membros do nosso time abaixo:")
 
     # Definindo informações sobre cada membro
-    team_members = [
+    team_members = [{  "name": "Emily da Silva Vaculik",
+            "photo": "https://media.licdn.com/dms/image/D4D03AQFS8a2Sq03t6g/profile-displayphoto-shrink_200_200/0/1675709544684?e=1726704000&v=beta&t=5fAhzltzhBUKt033mi6v6AxziucbenFO8qAwW5Z0EuA",  
+            "graduation": "Engenheira de Alimentos - Faculdade de Tecnologia Termomecanica",
+            "description":"Gerente de Contas Externas",
+            "linkedin": "https://www.linkedin.com/in/emily-vaculik-9a82ab202/"
+        },
+        {  "name": " Marcos Barbosa da Silva",
+           "photo": " https://media.licdn.com/dms/image/D4D03AQF26Tn_uiB3FQ/profile-displayphoto-shrink_200_200/0/1686167990179?e=1726704000&v=beta&t=0y-GrK0h0W9n7XD6wXl_EGrL4mJ-YTdShRtgTkw1WhE", 
+           "graduation": " Administração de Empresas - Faculdade Impacta Tecnologia",
+           "description":" Business Intelligence Sr",
+           "linkedin": "https://www.linkedin.com/in/marcos-silva-61705b31/"},
         {
             "name": "Leandro Soares da Silva",
-            "photo": "https://ovicio.com.br/wp-content/uploads/2022/06/20220628-goku_trw2.jpg",  # Caminho para a foto do Leandro
-            "description": "Especialista em dados com experiência em Python, BigQuery, Looker e IA.",
+            "photo": "https://media.licdn.com/dms/image/D4D03AQGGp3NG8HiDxA/profile-displayphoto-shrink_800_800/0/1712980770530?e=1726704000&v=beta&t=cwv9AVlch64rCMOmvdBkH7WmgVhNaBGQz4KdfShcD-Q",  # Caminho para a foto do Leandro
+            "graduation": "Bacharel em Engenharia de Computação",
+            "description": "Analista de BI",
             "linkedin": "https://www.linkedin.com/in/leandro"
         },
-        {
-            "name": "Membro 2",
-            "photo": "https://ovicio.com.br/wp-content/uploads/2022/06/20220628-goku_trw2.jpg",  # Caminho para a foto do Membro 2
-            "description": "Descrição sobre o Membro 2.",
-            "linkedin": "https://www.linkedin.com/in/membro2"
-        },
-        {
-            "name": "Membro 3",
-            "photo": "https://ovicio.com.br/wp-content/uploads/2022/06/20220628-goku_trw2.jpg",  # Caminho para a foto do Membro 3
-            "description": "Descrição sobre o Membro 3.",
-            "linkedin": "https://www.linkedin.com/in/membro3"
-        }
     ]
 
     # Exibindo informações sobre cada membro
